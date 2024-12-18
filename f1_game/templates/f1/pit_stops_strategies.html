@@ -10,12 +10,23 @@
             height: 60px;
             width: auto;
         }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        .content h2 {
+            margin-top: 40px;
+        }
+        .content p, .content li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img class="logo"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s"></a>
+        <a class="navbar-brand" href="#"><img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,11 +37,57 @@
         </div>
     </nav>
 
-    <!--content here-->
-    <div class="container mt-5">
+    <div class="container mt-5 content">
         <h1>Pit Stops & Strategies</h1>
         <p>Discover the art of pit stops and the strategies that can make or break a race.</p>
-        <a href="{% url 'landing_page' %}" class="btn btn-primary">Back to Home</a>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIu4ry_X7kzQumXJTQFrlnrljbY739vgGgkw&s" alt="F1 Pit Stop Crew Example">
+
+        <!-- Abstract -->
+        <h2>Abstract</h2>
+        <p>This research reviews the key role of pit stops as a main part of a well-designed F1 race strategy. The main objective is to analyze the importance of an efficient pit stop and the impact that it has on the race. The second part presents the evolution of pit stops through the years. A good pit stop is a fundamental element in F1; one that may lead a team to the top of the podium. Finally, the research analyzes the pit stop crew, considered one of the aspects of the "F1 Trinity," alongside the driver and the car.</p>
+
+        <!-- Introduction -->
+        <h2>Introduction</h2>
+        <p>F1 pit stops are one of the most intense and exciting features of a Grand Prix. Races are frequently won and lost because of the pit stops and the pit crews, as a stop of a few seconds can give the competition a lead of a few hundred meters. Therefore, pit stop timing is crucial for an F1 team. In just a few seconds, actions like tire changes, mechanical repairs, and wing adjustments are carried out by pit crews. An effective race strategy must account for pit stops, including timing and tire selection, while considering competitors' moves. Every millisecond counts in F1, making flexible pit stop planning vital.</p>
+
+        <!-- Data Collection & Methodology -->
+        <h2>Data Collection & Methodology</h2>
+        <p>The data for this research is divided into two parts:</p>
+        <ul>
+            <li>Historical data analyzing the evolution of pit stops from the 1950s to the present.</li>
+            <li>Graphical analysis of the last two years’ fastest pit stop times, emphasizing their importance during races.</li>
+        </ul>
+
+        <!-- A Few More Words About the Pit Stops -->
+        <h2>A Few More Words About the Pit Stops</h2>
+        <p>In F1, a pit stop involves stopping the car for quick maintenance, tire changes, repairs, or adjustments. The pit lane runs parallel to the start/finish line and includes garages for teams. Each pit crew typically consists of about 20 mechanics who perform these actions in seconds. A slight delay can cost a position on the podium. Teams plan pit stops considering race conditions, average requirements (usually 2 stops per race), and potential unforeseen events. The current pit stop world record is 1.92 seconds, set by Red Bull in the 2013 USA Grand Prix.</p>
+
+        <!-- Pit Stops Through the Years -->
+        <h2>Pit Stops Through the Years</h2>
+        <p>When the F1 championship began in 1950, pit stops were disorganized and lengthy. Over the years, they have evolved significantly:</p>
+        <ul>
+            <li>1950s: Average pit stop time was 67 seconds.</li>
+            <li>1970s: Dropped to 27 seconds with better organization.</li>
+            <li>1980s: Refueling ban led to stops of around 8 seconds.</li>
+            <li>1990s: Times dropped to about 6 seconds, with the Benetton team achieving 3.2 seconds in 1993.</li>
+            <li>Post-2009: Current average pit stop times are 2-2.5 seconds, thanks to advanced technology and training.</li>
+        </ul>
+        <p>The evolution of pit stops highlights their increasing importance, with a 96% reduction in average time since the 1950s.</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTl4OLb1wXufswLg9ip6D-3oeFTtwSVanf5Q&s" alt="F1 Pit Stop Crew Example">
+
+        <!-- A Closer Look at Pit Stops & Analysis of the Pit Crew -->
+        <h2>A Closer Look at Pit Stops & Analysis of the Pit Crew</h2>
+        <p>During a pit stop, every action must be completed in seconds. Each team member has a specific role:</p>
+        <ul>
+            <li><strong>Jacks:</strong> Raise the car for tire changes.</li>
+            <li><strong>Tire Crew:</strong> Includes gunners, carriers, and installers for each wheel.</li>
+            <li><strong>Lollipop Man:</strong> Oversees the process and signals the driver when to leave.</li>
+            <li><strong>Additional Crew:</strong> Clean the driver’s visor, stabilize the car, and adjust the wings.</li>
+        </ul>
+        <p>The pit crew operates with precision, making every millisecond count. Their training and coordination are vital for success.</p>
+
+        <!-- Navigation Back -->
+        <a href="{% url 'landing_page' %}" class="btn btn-primary mt-4">Back to Home</a>
     </div>
 </body>
 </html>
