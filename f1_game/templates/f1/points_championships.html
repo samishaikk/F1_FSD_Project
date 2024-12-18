@@ -11,29 +11,126 @@
             height: 60px;
             width: auto;
         }
+
+        .hero {
+            background: url('https://www.formula1.com/etc/designs/fom-frontend/images/logo-dark.svg') no-repeat center center;
+            background-size: cover;
+            height: 300px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .content {
+            margin-top: 40px;
+        }
+
+        .championship-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .scroll-top-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img class="logo"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s"></a>
+        <a class="navbar-brand" href="#">
+            <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s" alt="Formula 1 Logo">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-            </ul>
-        </div>
+       
     </nav>
 
-    <!--content here-->
-    <div class="container mt-5">
-        <h1>SAMI</h1>
-        <p>Nigger</p>
-        <a href="{% url 'landing_page' %}" class="btn btn-primary">Back to Home</a>
+    <div class="hero">
+        <h1>Formula 1 Championships</h1>
     </div>
+
+    <!-- Content about F1 Championships -->
+    <div class="container content">
+        <h2>The Formula 1 World Championship</h2>
+        <p>The <strong>Formula 1 World Championship</strong> is the highest level of motorsport, featuring some of the best drivers and teams in the world. It has been around since 1950 and is known for its high-speed racing, cutting-edge technology, and fierce competition. Each season, a series of races, known as Grands Prix, take place on a variety of circuits worldwide.</p>
+
+        <h3>1. Drivers' Championship</h3>
+        <p>The Drivers' Championship is awarded to the driver who accumulates the most points during the season. Points are earned based on finishing positions in each Grand Prix. Drivers aim to finish in the top 10 to score points. The driver who has the most points at the end of the season wins the championship and earns the title of World Champion. The most successful drivers in history include <strong>Michael Schumacher</strong>, <strong>Lewis Hamilton</strong>, and <strong>Sebastian Vettel</strong>.</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHSg6RT78uEeclsDJMhJjvJ23zt2AjETy_7Q&s" alt="Drivers' Championship" class="championship-img">
+
+        <h3>2. Constructors' Championship</h3>
+        <p>The Constructors' Championship is awarded to the team that scores the most points during the season. Each team consists of two drivers, and their combined efforts contribute to the team's total points. The team with the most points wins the championship. The Constructors' Championship is highly coveted because it represents the best team effort, including the car's engineering, strategy, and driver performance. Legendary teams include <strong>Ferrari</strong>, <strong>Mercedes</strong>, and <strong>Red Bull Racing</strong>.</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXLf2nhzg8hnZqBl2ppC39JlG4qmzsBPQVUQ&s" alt="Constructors' Championship" class="championship-img">
+
+        <h3>Famous Championship Rivalries</h3>
+        <p>Throughout Formula 1's rich history, there have been iconic rivalries between drivers that have defined the sport. These rivalries often spill over into the media, creating immense drama and tension in each season. Some of the most famous rivalries include:</p>
+        <ul>
+            <li><strong>Ayrton Senna vs. Alain Prost</strong> (1980s): Known as the most intense rivalry in F1 history, their fierce competition included controversial moments like the 1989 Japanese GP.</li>
+            <li><strong>Michael Schumacher vs. Damon Hill</strong> (1990s): Schumacher’s dominance was challenged by Hill, resulting in thrilling moments, such as their dramatic clash in the 1994 Adelaide GP.</li>
+            <li><strong>Lewis Hamilton vs. Sebastian Vettel</strong> (2010s): Two of the most successful drivers of the modern era, battling for supremacy with their respective teams, Mercedes and Ferrari.</li>
+            <li><strong>Lewis Hamilton vs. Max Verstappen</strong> (2020s): A modern-day rivalry that captivated fans with fierce battles on the track, especially during the controversial 2021 season.</li>
+        </ul>
+
+        <h3>Structure of a Formula 1 Season</h3>
+        <p>The Formula 1 season typically runs from March to December, with races held in different countries across the globe. These races are held on purpose-built race tracks, public roads, and even street circuits. A season typically includes:</p>
+        <ul>
+            <li><strong>20 to 23 races</strong> across various continents, including Europe, Asia, the Americas, and the Middle East.</li>
+            <li><strong>Pre-season testing</strong>: Teams test their cars on the track before the season begins to fine-tune their setups and strategies.</li>
+            <li><strong>Practice sessions</strong>: Held on Fridays, these are opportunities for drivers to learn the track and adjust their cars.</li>
+            <li><strong>Qualifying</strong>: Takes place on Saturdays to determine the starting grid for the race.</li>
+            <li><strong>The race</strong>: Usually held on Sundays, the final result determines the points earned for the championship standings.</li>
+        </ul>
+
+        <h3>Recent Champions</h3>
+        <p>The competition for the title of World Champion is fierce, with new talents emerging every season. Below are some of the most recent champions who have left their mark on the sport:</p>
+        <ul>
+            <li><strong>2023</strong>: Max Verstappen (Red Bull Racing) - Verstappen's dominant performance in the 2023 season made him a key figure in modern F1 history.</li>
+            <li><strong>2022</strong>: Max Verstappen (Red Bull Racing) - Verstappen secured his second consecutive title in a season where he won 15 races.</li>
+            <li><strong>2021</strong>: Lewis Hamilton (Mercedes) - Despite a fierce battle with Verstappen, Hamilton showed why he's regarded as one of the sport's greatest drivers.</li>
+        </ul>
+
+        <h3>Preparing for a Formula 1 Race</h3>
+        <p>Formula 1 teams and drivers undergo extensive preparations before each race. This includes:</p>
+        <ul>
+            <li><strong>Car Development</strong>: Teams invest millions into researching and developing their cars. The car’s aerodynamics, engine performance, and overall reliability are key factors in a successful season.</li>
+            <li><strong>Driver Fitness</strong>: Drivers must maintain peak physical fitness, as F1 cars put immense physical demands on their bodies, including G-forces during corners and braking.</li>
+            <li><strong>Strategy</strong>: Race strategies are determined by factors such as tire wear, fuel levels, and weather conditions. Teams work with their drivers to decide the best approach to each race.</li>
+        </ul>
+
+        <p>Formula 1 is a sport that blends technology, skill, and strategy. Each season is filled with exciting moments, high-speed drama, and exceptional talent. Whether you're watching the latest race or reading up on the history of the sport, there’s always something to admire in Formula 1!</p>
+        <a href="{% url 'landing_page' %}" class="btn btn-primary mt-4">Back to Home</a>
+
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Scroll to Top functionality
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    
 </body>
 
 </html>

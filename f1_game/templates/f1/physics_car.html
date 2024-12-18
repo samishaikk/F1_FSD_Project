@@ -11,29 +11,179 @@
             height: 60px;
             width: auto;
         }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://cdn.pixabay.com/photo/2017/08/30/05/12/car-2691347_960_720.jpg') no-repeat center center;
+            background-size: cover;
+            height: 400px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        /* Main Content Styling */
+        .content {
+            margin-top: 40px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .car-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #007bff;
+            text-transform: uppercase;
+        }
+
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-top-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #f8f9fa;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img class="logo"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s"></a>
+        <a class="navbar-brand" href="#">
+            <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s" alt="Formula 1 Logo">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Physics Behind F1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Championships</a>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <!--content here-->
-    <div class="container mt-5">
-        <h1>Physics</h1>
-        <p>aero</p>
-        <a href="{% url 'landing_page' %}" class="btn btn-primary">Back to Home</a>
+    <div class="hero">
+        <h1>The Physics Behind a Formula 1 Car</h1>
     </div>
+
+    <!-- Content about Physics of F1 Cars -->
+    <div class="container content">
+        <h2 class="section-title">Introduction to Formula 1 Physics</h2>
+        <p>Formula 1 cars are not just fast machines; they are masterpieces of engineering and physics. The performance of a Formula 1 car is largely determined by the principles of physics, including aerodynamics, friction, and energy management. Understanding how these principles work together allows engineers to push the boundaries of speed, handling, and safety.</p>
+        <img src="https://cdn-s3.thevarsity.ca/2022/11/Science_F1_Andrea-Zhao-1.jpg" alt="Formula 1 car physics" class="car-image">
+
+        <h2 class="section-title">Aerodynamics: The Key to Speed</h2>
+        <p>A Formula 1 car’s ability to go fast is closely related to aerodynamics. The air flowing over and around the car influences its speed, stability, and handling. Aerodynamic forces, such as lift and downforce, are crucial for maintaining control at high speeds.</p>
+        <h3>Downforce</h3>
+        <p>Downforce is a critical factor in Formula 1 car design. It refers to the downward force created by the car's aerodynamics, which presses the car down onto the track. This increased contact with the road enhances grip and allows for faster cornering. Downforce is generated primarily through components such as the front and rear wings, as well as the car's floor.</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoe1Bp5yUawD7GYcvjT1R53hChLPcc8tF-sQ&s" alt="F1 Car Downforce" class="car-image">
+        <p>When a car generates more downforce, it has better traction, which is essential for cornering at high speeds. However, creating more downforce also increases drag, which slows the car down on straight sections of the track. Engineers must carefully balance downforce and drag to optimize performance for each circuit.</p>
+
+        <h3>Drag</h3>
+        <p>Drag is the aerodynamic resistance that the car encounters as it moves through the air. It reduces the car's top speed and is caused by the friction between the air and the car's surface. Reducing drag is essential for improving the car's overall performance, especially on long straights.</p>
+
+        <h2 class="section-title">Tire Forces: The Grip Factor</h2>
+        <p>The tires are the only point of contact between the car and the track, so tire performance plays a significant role in the car's ability to generate grip and handle corners. The force between the tire and the track is governed by the <strong>frictional force</strong>, which is influenced by the tire's composition, the temperature, and the pressure.</p>
+        <h3>Friction and Grip</h3>
+        <p>In simple terms, friction is what allows a tire to grip the road. The higher the friction between the tire and the road, the more grip the car will have. However, excessive friction can lead to tire wear and overheating, which can degrade performance over time. This is why tire management is so crucial in Formula 1 races. Teams must make strategic decisions about when to change tires, as different compounds are optimized for different conditions.</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs0dJnb3DHboC0Hht-gycxflDWsr5PIjwOLQ&s" alt="F1 tire forces" class="car-image">
+
+        <h2 class="section-title">Braking Forces: Stopping Power</h2>
+        <p>Formula 1 cars are equipped with incredibly powerful brakes that allow them to slow down from high speeds in a matter of seconds. Braking forces are generated by the brake discs and pads, which convert the car’s kinetic energy into heat energy. The faster a car is going, the greater the force needed to stop it. F1 cars are designed to handle these extreme forces, with specialized brake systems that provide exceptional stopping power without overheating.</p>
+
+        <h2 class="section-title">Energy and Efficiency: Fuel and Power Units</h2>
+        <p>Formula 1 cars are powered by hybrid engines, which combine internal combustion engines (ICE) with electric motors. The hybrid power unit is designed to optimize fuel efficiency while delivering maximum power. F1 cars recover energy during braking through a system known as the Kinetic Energy Recovery System (KERS). This recovered energy is then stored and can be used later for additional power, such as during overtaking maneuvers.</p>
+
+        <h3>Energy Recovery and Management</h3>
+        <p>Energy recovery is an essential aspect of modern F1 racing. The ability to recover energy from braking and store it for later use allows teams to optimize their fuel consumption. The system recovers energy when the car decelerates and converts it into electrical energy, which is then stored in a battery. This energy can be used to boost the car’s power during acceleration, providing an advantage on the track.</p>
+
+        <h2 class="section-title">Conclusion</h2>
+        <p>The physics behind a Formula 1 car is a fascinating combination of aerodynamics, friction, energy management, and advanced materials. Every aspect of the car’s design is carefully engineered to achieve the highest levels of performance, allowing drivers to push the limits of speed and handling. Understanding these physical principles provides a deeper appreciation for the science that powers one of the world’s most exciting sports.</p>
+
+        <a href="{% url 'landing_page' %}" class="btn btn-primary mt-4">Back to Home</a>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" onclick="scrollToTop()">↑</button>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Formula 1 - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Scroll to Top functionality
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 
 </html>
