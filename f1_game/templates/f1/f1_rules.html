@@ -1,36 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>F1 Rules</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <style>
-        .logo {
-            height: 60px;
-            width: auto;
-        }
+      .logo {
+        height: 60px;
+        width: auto;
+      }
+      .content-section {
+        margin-bottom: 40px;
+      }
+      .content-section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+      .highlight {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+      .highlight img {
+        margin-bottom: 15px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img class="logo"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-            </ul>
-        </div>
+      <a class="navbar-brand" href="#"
+        ><img
+          class="logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s"
+          alt="Logo"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </nav>
 
-    <!--content here-->
     <div class="container mt-5">
-        <h1>F1 Rules</h1>
-        <p>Understand the rules and regulations of Formula 1 racing.</p>
-        <a href="{% url 'landing_page' %}" class="btn btn-primary">Back to Home</a>
+      <h1 class="text-center">Formula 1 Rules & Regulations</h1>
+      <p class="text-center">
+        A comprehensive guide to the rules that govern Formula 1 racing.
+      </p>
+
+      <!-- Section 1 -->
+      <div class="content-section">
+        <h2>1. Technical Regulations</h2>
+        <p>
+          Formula 1 cars are designed within strict technical guidelines to
+          ensure safety and fairness in competition. Teams must follow rules
+          regarding aerodynamics, engine capacity, and weight distribution. The
+          FIA (Fédération Internationale de l'Automobile) mandates car
+          specifications every year to limit excessive advantages by any single
+          team.
+        </p>
+        <div class="highlight">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCV8yeZYowhcioCOwDWj5PgCZmu_32Ntqp3A&s"
+            alt="F1 Car Technical Overview"
+          />
+          <p>
+            For example, the minimum car weight for the 2024 season is 798kg
+            (including the driver). Additionally, teams must use hybrid power
+            units, which combine a 1.6-liter V6 turbocharged engine with an
+            Energy Recovery System (ERS).
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="content-section">
+        <h2>2. Sporting Regulations</h2>
+        <p>
+          Sporting regulations dictate how races are conducted, including
+          qualification formats, pit stops, and penalties. Each Grand Prix
+          weekend typically consists of practice sessions, a qualifying session,
+          and the main race on Sunday.
+        </p>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxh2YmCPePK4j1anzmRLCDtfzVtt_bEPk-Xw&s"
+          alt="F1 Sporting Events"
+        />
+        <p>
+          The grid order for the race is determined during the qualifying
+          session. Points are awarded to the top 10 finishers, with the winner
+          receiving 25 points, second place 18 points, and so on.
+        </p>
+        <div class="highlight">
+          <h4>Key Pit Stop Rules:</h4>
+          <ul>
+            <li>
+              Each car must complete the race with at least two different tire
+              compounds.
+            </li>
+            <li>
+              Unsafe release during a pit stop can result in a time penalty.
+            </li>
+            <li>The pit lane speed limit is 80 km/h (50 mph).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="content-section">
+        <h2>3. Safety Regulations</h2>
+        <p>
+          Safety is paramount in Formula 1, and the FIA enforces stringent rules
+          to protect drivers, teams, and fans. Every car is equipped with the
+          Halo device, which protects drivers' heads from debris.
+        </p>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQij1txVSDJY6hR9YFpcqqybIZW-AecsqoWdw&s"
+          alt="Halo Device in F1 Car"
+        />
+        <p>
+          In addition, cars undergo rigorous crash testing before being allowed
+          to compete. Safety regulations also extend to the track, ensuring
+          proper barriers, runoff areas, and medical facilities.
+        </p>
+        <div class="highlight">
+            <h4>Driver safety</h4>
+            <p>Drivers wear helmets, gloves, boots, underwear, and a race suit. The FIA's helmet standard includes a zylon panel at the top of the visor, low velocity impact tests, and lateral tests. Biometric gloves transmit data to help medics assess the driver's condition. </p>
+            <h4>Car safety</h4>
+            <p>
+                The front impact structure has a two-stage nose design to reduce the risk of detachment during initial impacts. The side intrusion rules are also stricter, and there is improved protection around the driver and fuel cell area. 
+            </p>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="content-section">
+        <h2>4. Penalties & Infractions</h2>
+        <p>
+          Drivers and teams must adhere to race-day rules or face penalties.
+          Common infractions include exceeding track limits, causing collisions,
+          and ignoring blue flags (used to let faster cars overtake).
+        </p>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_D-lHrbNjUwqKt2B0saw1RP1WcDsZ3Y0CWA&s"
+          alt="F1 Race Penalties"
+        />
+        <div class="highlight">
+          <h4>Types of Penalties:</h4>
+          <ul>
+            <li>
+              <strong>Time Penalties:</strong> Added to the driver’s total race
+              time.
+            </li>
+            <li>
+              <strong>Drive-Through Penalties:</strong> Requiring drivers to
+              pass through the pit lane.
+            </li>
+            <li>
+              <strong>Grid Penalties:</strong> Applied during the next race’s
+              starting grid.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="content-section">
+        <h2>5. Environmental Sustainability Rules</h2>
+        <p>
+          Formula 1 is committed to sustainability, aiming to achieve a net-zero
+          carbon footprint by 2030. Teams are encouraged to use sustainable
+          fuels and limit emissions during logistics and operations.
+        </p>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk-UBgXPEWLT2T2wXa9ytp3R-VHzzEoqzumA&s"
+          alt="Sustainability in F1"
+        />
+      </div>
+      <div class="highlight">
+        <h3>Formula 1 Environmental Sustainability Initiatives</h3>
+        <h4>Reducing Carbon Footprint</h4>
+        <ul>
+          <li>
+            F1 is working to reduce its carbon footprint by using more efficient
+            transportation, transitioning to renewable energy, and offsetting
+            unavoidable emissions.
+          </li>
+          <ul>
+            <li>
+              <strong>Remote broadcast:</strong> F1 has reduced the number of
+              people and freight required on-site at races by using remote
+              broadcast operations.
+            </li>
+            <li>
+              <strong>Redesigned freight containers:</strong> F1 has redesigned
+              its freight containers to use 777F cargo planes, which emit 19%
+              less carbon than 747F planes.
+            </li>
+            <li>
+              <strong>Renewable energy:</strong> F1 is transitioning to 100%
+              renewable electricity at all of its facilities, factories, and
+              venues.
+            </li>
+            <li>
+              <strong>Sustainable fuel:</strong> F1 is developing a new
+              sustainable fuel for 2026 and beyond.
+            </li>
+          </ul>
+        </ul>
+        <h4>Reducing Single-Use Plastics</h4>
+        <p>
+          F1 has reduced the use of single-use plastics and is promoting the use
+          of reusable bottles.
+        </p>
+        <h4>Partnering with Local Charities</h4>
+        <p>
+          Many F1 circuits partner with local food banks and charities to donate
+          surplus food.
+        </p>
+        <h4>Water Conservation</h4>
+        <p>The Las Vegas Grand Prix launched a water conservation program.</p>
+        <h4>Engine Regulations</h4>
+        <p>
+          The 2026 F1 engine will have a more powerful electrical component to
+          collect braking energy.
+        </p>
+      </div>
+
+      <a href="{% url 'landing_page' %}" class="btn btn-primary mb-5"
+        >Back to Home</a
+      >
     </div>
-</body>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

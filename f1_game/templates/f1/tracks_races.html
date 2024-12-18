@@ -10,6 +10,18 @@
             height: 60px;
             width: auto;
         }
+        .track-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .track-section {
+            margin-top: 20px;
+        }
+        .track-section h2 {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -22,15 +34,90 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'landing_page' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tracks">Iconic Tracks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#races">Legendary Races</a>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <!--content here-->
     <div class="container mt-5">
         <h1>Tracks & Races</h1>
-        <p>Explore the most iconic tracks and races in the history of Formula 1.</p>
-        <a href="{% url 'landing_page' %}" class="btn btn-primary">Back to Home</a>
+        <p>Discover the legendary circuits and unforgettable moments that define Formula 1's history.</p>
+        
+        <!-- Iconic Tracks Section -->
+        <div id="tracks" class="track-section">
+            <h2>Iconic Tracks</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://mclaren.bloomreach.io/delivery/resources/content/gallery/mclaren-racing/formula-1/2023/monaco-gp/race/1019656291-lat-20230528-gp2306_130323_u1a6108.jpg" alt="Monaco GP Track" class="track-image">
+                    <h3>Monaco Grand Prix</h3>
+                    <p>The Monaco Grand Prix is one of the most prestigious and challenging circuits in Formula 1. Nestled in the streets of Monte Carlo, it tests drivers with its narrow roads, sharp turns, and unforgiving barriers. The glamorous surroundings make it a fan-favorite.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://c0.wallpaperflare.com/preview/395/147/774/united-kingdom-towcester-silverstone-circuit-gtpro.jpg" alt="Silverstone Track" class="track-image">
+                    <h3>Silverstone Circuit</h3>
+                    <p>Known as the home of British motorsport, Silverstone hosted the first-ever Formula 1 race in 1950. With its high-speed corners and rich history, it remains one of the most iconic tracks in the F1 calendar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <img src="https://cdn-1.latimages.com/images/mgl/0eKn02/s4/1016935373-LAT-20181007-_ONY0715.jpg" alt="Suzuka Circuit" class="track-image">
+                <h3>Suzuka Circuit</h3>
+                <p>The Suzuka Circuit in Japan is unique for its figure-eight layout. It has been the stage for many championship-deciding races and is beloved for its challenging design.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRARj5AjXrTlwnoPtFmA88FY_z65uiR0pXhgA&s" alt="Spa-Francorchamps" class="track-image">
+                <h3>Spa-Francorchamps</h3>
+                <p>Located in Belgium, Spa-Francorchamps is renowned for its long straights and the famous Eau Rouge corner. It is a favorite among drivers and fans alike for its picturesque setting and thrilling layout.</p>
+            </div>
+        </div>
+
+        <!-- Legendary Races Section -->
+        <div id="races" class="track-section">
+            <h2>Legendary Races</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://www.racefans.net/wp-content/uploads/2024/04/racefansdotnet-24-04-11-11-29-43-1-XPB_218266_HiRes.jpg" alt="Monaco Race" class="track-image">
+                    <h3>Senna’s 1984 Monaco Drive</h3>
+                    <p>Ayrton Senna's drive in the rain at the 1984 Monaco Grand Prix is legendary. Despite being in an inferior car, he showcased his immense talent and finished second in treacherous conditions.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGvqts_4QoNIkLwO5xounrOqviwwZHMiabeQ&s" alt="Spa Podium" class="track-image">
+                    <h3>Schumacher's First Win (1992 Spa)</h3>
+                    <p>Michael Schumacher claimed his first-ever Formula 1 victory at Spa in 1992. It was the beginning of an extraordinary career that would see him become one of the sport's greatest legends.</p>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <img src="https://motorsportmagazine.b-cdn.net/wp-content/uploads/2019/07/verstappen_podium.jpg" alt="Australia GP" class="track-image">
+                    <h3>2019 Austrian GP</h3>
+                    <p>The 2019 Austrian Grand Prix was a race for the ages, with Max Verstappen coming back from seventh place to win in a dramatic final few laps.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://www.aljazeera.com/wp-content/uploads/2021/12/AP21346704827193.jpg?resize=770%2C513&quality=80" alt="Abu Dhabi GP" class="track-image">
+                    <h3>2021 Abu Dhabi Finale</h3>
+                    <p>The 2021 season finale in Abu Dhabi was one of the most controversial and dramatic races in F1 history, with Max Verstappen securing his first championship in a nail-biting last-lap battle.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{% url 'landing_page' %}" class="btn btn-primary">Back to Home</a>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

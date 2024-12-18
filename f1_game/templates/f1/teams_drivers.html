@@ -10,27 +10,167 @@
             height: 60px;
             width: auto;
         }
+        .content-section {
+            margin-bottom: 40px;
+        }
+        .content-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .team-card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .team-card img {
+            height: 200px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img class="logo"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s"></a>
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s" alt="Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Tracks</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Drivers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">F1 Rules</a></li>
             </ul>
         </div>
     </nav>
 
-    <!--content here-->
     <div class="container mt-5">
-        <h1>Teams & Drivers</h1>
-        <p>Get to know the teams and drivers competing in the F1 championship.</p>
-        <a href="{% url 'landing_page' %}" class="btn btn-primary">Back to Home</a>
+        <h1 class="text-center">Teams & Drivers</h1>
+        <p class="text-center">Discover the incredible teams and talented drivers competing in Formula 1.</p>
+
+        <!-- Teams Section -->
+        <div class="content-section">
+            <h2>Top Teams in Formula 1</h2>
+            <p>Formula 1 features world-class teams that push the limits of engineering and technology to win championships.</p>
+            
+            <div class="row">
+                <!-- Existing Teams -->
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://wallpapercave.com/wp/wp11475483.jpg" alt="Mercedes AMG">
+                        <h4>Mercedes AMG Petronas</h4>
+                        <p>Known for their dominance in the hybrid era, Mercedes has been the team to beat since 2014.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaMRKTszn5VmOnRLzqhTG-7UENsYC885hR_Q&s" alt="Ferrari">
+                        <h4>Scuderia Ferrari</h4>
+                        <p>The most iconic and successful team in F1 history, Ferrari has been competing since 1950.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-T2W6py8gOH9O8S2aoIGXgOjCfNqNpV8Kaw&s" alt="Red Bull Racing">
+                        <h4>Red Bull Racing</h4>
+                        <p>Renowned for their innovative designs, Red Bull is the team behind drivers like Max Verstappen.</p>
+                    </div>
+                </div>
+
+                <!-- New Teams -->
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGcsIbpJyIDazdu6gd7iJ8Gd0Bke7sEswLWQ&s" alt="Alpine F1 Team">
+                        <h4>Alpine F1 Team</h4>
+                        <p>Alpine is Renault's rebranded F1 team, blending performance and innovation.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/McLaren_F1_car.jpg" alt="McLaren">
+                        <h4>McLaren</h4>
+                        <p>One of the oldest teams in F1, McLaren is famous for its legacy of champions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Aston_Martin_F1_car.jpg" alt="Aston Martin">
+                        <h4>Aston Martin</h4>
+                        <p>Returning to F1, Aston Martin brings elegance and high-performance engineering.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drivers Section -->
+        <div class="content-section">
+            <h2>Legendary Drivers</h2>
+            <p>Meet the talented drivers who compete at the pinnacle of motorsport.</p>
+            
+            <div class="row">
+                <!-- Existing Drivers -->
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAz2wmx56DxaL70YzjUSRlpZElzOEa5KdjRA&s" alt="Lewis Hamilton">
+                        <h4>Lewis Hamilton</h4>
+                        <p>With 7 world championships, Lewis is one of the most successful drivers in F1 history.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmDSMTX2tRnyiPI_v4gMA586GvbakgSskOsw&s" alt="Max Verstappen">
+                        <h4>Max Verstappen</h4>
+                        <p>A two-time world champion, Verstappen is known for his aggressive driving and skill.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://gpticketstore.vshcdn.net/uploads/images/164/f1-charles-leclerc-ferrari-f1austria-f1spa-f1hungaroring-f1france-f1barcelona-f1italy-f1imola-f1silverstone-f1zandvoort.jpg" alt="Charles Leclerc">
+                        <h4>Charles Leclerc</h4>
+                        <p>A rising star in Formula 1, Leclerc represents the future of Scuderia Ferrari.</p>
+                    </div>
+                </div>
+
+                <!-- New Drivers -->
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Fernando_Alonso_2022.jpg" alt="Fernando Alonso">
+                        <h4>Fernando Alonso</h4>
+                        <p>A two-time world champion, Alonso is one of F1's most experienced and skillful drivers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Sebastian_Vettel_2021.jpg" alt="Sebastian Vettel">
+                        <h4>Sebastian Vettel</h4>
+                        <p>With 4 world titles, Vettel is a legend in F1 and an advocate for sustainability.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Lando_Norris_2021.jpg" alt="Lando Norris">
+                        <h4>Lando Norris</h4>
+                        <p>A young talent from McLaren, Lando is admired for his pace and personality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing Section -->
+        <div class="text-center mb-5">
+            <a href="{% url 'landing_page' %}" class="btn btn-primary">Back to Home</a>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
