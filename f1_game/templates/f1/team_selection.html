@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Team Selection{% endblock %}
+
+{% block content %}
+<h2>Select Your Team</h2>
+<p>Budget: ${{ budget }}</p>
+
+{% if error %}
+<div class="alert alert-danger">
+    {{ error }}
+</div>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        <h3>Select Driver</h3>
+        <select name="driver" class="form-select" required>
+            {% for driver in drivers %}
+                <option value="{{ driver.id }}">{{ driver.name }} - ${{ driver.cost }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <h3>Select Car</h3>
+        <select name="car" class="form-select" required>
+            {% for car in cars %}
+                <option value="{{ car.id }}">{{ car.name }} - ${{ car.cost }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <h3>Select Engineer</h3>
+        <select name="engineer" class="form-select" required>
+            {% for engineer in engineers %}
+                <option value="{{ engineer.id }}">{{ engineer.name }} - ${{ engineer.cost }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <h3>Select Race Strategy</h3>
+        <div class="btn-group" role="group" aria-label="Race Strategy">
+            <input type="radio" class="btn-check" name="strategy" id="aggressive" value="aggressive" autocomplete="off">
+            <label class="btn btn-outline-danger" for="aggressive">
+                Aggressive
+                <small class="d-block">High wear (+50%), High consumption (+40%)</small>
+            </label>
+
+            <input type="radio" class="btn-check" name="strategy" id="balanced" value="balanced" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="balanced">
+                Balanced
+                <small class="d-block">Normal wear, Normal consumption</small>
+            </label>
+
+            <input type="radio" class="btn-check" name="strategy" id="conservative" value="conservative" autocomplete="off">
+            <label class="btn btn-outline-success" for="conservative">
+                Conservative
+                <small class="d-block">Low wear (-30%), Low consumption (-20%)</small>
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Confirm Team</button>
+</form>
+
+    <div class="mt-4">
+        <h3>Recommended Combinations</h3>
+        <div class="list-group">
+            {% for rec in recommendations %}
+                <div class="list-group-item">
+                    <h5 class="mb-1">Recommended Team #{{ forloop.counter }}</h5>
+                    <div class="mb-2" style="white-space: pre-line">{{ rec.description }}</div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-primary">Performance: {{ rec.performance_score|floatformat:1 }}</span>
+                        <span class="text-success">Cost: ${{ rec.total_cost }}</span>
+                        <span class="text-info">Remaining: ${{ rec.remaining_budget }}</span>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="alert alert-info">
+                    No recommendations available for your budget.
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

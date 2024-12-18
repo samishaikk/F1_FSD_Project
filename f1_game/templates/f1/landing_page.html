@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Game - Landing Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .carousel-caption h5 {
+            font-size: 3rem;
+        }
+
+        .carousel-caption p {
+            font-size: 1.5rem;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            height: 800px;
+            /* Adjust height to achieve cinematic aspect ratio */
+        }
+
+        .carousel-caption {
+            z-index: 10;
+        }
+
+        .footer {
+            background: #000000;
+            color: aliceblue;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .card-img-top {
+            object-fit: cover;
+            height: 200px;
+            /* Ensure consistent aspect ratio */
+        }
+
+        .btn-primary {
+            background-color: red;
+            border-color: red;
+        }
+
+        .btn-primary:hover {
+            background-color: black;
+            border-color: red;
+        }
+        .btn-primary::after{
+            background-color: black;
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .welcome-section h1 {
+            font-size: 3rem;
+        }
+
+        .welcome-section p {
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img class="logo"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy7G6Var3R9XgIE5W47Iu10wrYtUrNkU0M8w&s"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://i.pinimg.com/originals/ea/a6/98/eaa698b63df39e7c9cad20ba9b35d0c8.jpg"
+                    class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Welcome to the F1 Game</h5>
+                    <p>Experience the thrill of racing.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://i.redd.it/for-all-f1-wallpaper-lovers-i-got-you-link-to-album-in-v0-xak3hutaq3i91.png?width=1920&format=png&auto=webp&s=98410f84592a14ed23310614f4ee61f62105d3e0"
+                    class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Select Your Team</h5>
+                    <p>Choose the best driver, car, and engineer.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://wallpapers.com/images/hd/formula-1-desktop-rw9scavp6gtd2npz.jpg" class="d-block w-100"
+                    alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Start Racing</h5>
+                    <p>Compete in exciting races and win prizes.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- Cards Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://static01.nyt.com/images/2023/09/16/multimedia/16sp-singapore-races-inyt-01-hgvc/16sp-singapore-races-inyt-01-hgvc-superJumbo.jpg?quality=75&auto=webp"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Tracks & Races</h5>
+                        <p class="card-text">Explore the most iconic tracks and races in the history of Formula 1.</p>
+                        <a href="{% url 'tracks_races' %}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.ps-aws.com/c?url=https%3A%2F%2Fd3cm515ijfiu6w.cloudfront.net%2Fwp-content%2Fuploads%2F2023%2F04%2F03092326%2Fmax-verstappen-lewis-hamilton-restart-grid-planetf1.jpg"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">F1 rules explained</h5>
+                        <p class="card-text">Understand the rules and regulations of Formula 1 racing.</p>
+                        <a href="{% url 'f1_rules' %}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2022/12/28143438/formula-one-2022-drivers-abu-dhabi-grand-prix-planet-f1.jpg"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Teams & Drivers</h5>
+                        <p class="card-text">Get to know the teams and drivers competing in the F1 championship.</p>
+                        <a href="{% url 'teams_drivers' %}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://miro.medium.com/v2/resize:fit:2000/1*w9H4kYPTFPOLjMXZZ3AJew.jpeg"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Pit Stops & Strategies</h5>
+                        <p class="card-text">
+                            Discover the art of pit stops and the strategies that can make or break a race.
+                        </p>
+                        <a href="{% url 'pit_stops_strategies' %}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://media.formula1.com/image/upload/f_auto/q_auto/v1683015231/perez-win-baku-parc-ferme.png"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Points & Championships</h5>
+                        <p class="card-text">
+                            Learn how points are awarded and what it takes to win the championship.
+                        </p>
+                        <a href="{% url 'points_championships' %}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://i.ytimg.com/vi/tnDHM2XZ6AI/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGBogWChyMA8=&rs=AOn4CLCbpiN4a14lGYI7DwmOuryKUGpjQA"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Physics Behind the Car</h5>
+                        <p class="card-text">
+                            Discover the fascinating science behind the most advanced racing machines on the planet.
+                        </p>
+                        <a href="{% url 'physics_car' %}" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container welcome-section">
+        <h1>Welcome to the F1 Game</h1>
+        <p>Select your team and start racing!</p>
+        <a href="{% url 'team_selection' %}" class="btn btn-primary">Start Team Selection</a>
+    </div>
+
+    <!-- Explanation Cards Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Build Your Team</h5>
+                        <p class="card-text">Choose the best driver, car, and engineer to create a winning team.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Race Strategy</h5>
+                        <p class="card-text">Develop and execute race strategies to outsmart your opponents.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Team Management</h5>
+                        <p class="card-text">Build and manage your dream F1 team</p>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 F1 Game. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Race Complete{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h2>{{ end_message }}</h2>
+    
+    <div class="card mb-4">
+        <div class="card-header">Race Results</div>
+        <div class="card-body">
+            <h3>Final Position: {{ final_position }}</h3>
+            <h4>Prize Money: ${{ prize_money }}</h4>
+            
+            <div class="mt-4">
+                <h5>Team Summary</h5>
+                <p>Driver: {{ team.driver }}</p>
+                <p>Car: {{ team.car }}</p>
+                <p>Engineer: {{ team.engineer }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="{% url 'team_selection' %}" class="btn btn-primary">Start New Race</a>
+    </div>
+</div>
+{% endblock %}

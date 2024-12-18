@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Team Selection{% endblock %}
+
+{% block content %}
+<h2>Select Your Team</h2>
+<p>Budget: ${{ budget }}</p>
+
+<form method="POST">
+    {% csrf_token %}
+    
+        <p>Cost: ${{ driver.cost }}M</p>
+        <p>Skill: {{ driver.skill }}</p>
+        <input type="radio" name="driver" value="{{ driver.id }}" form="teamForm">
+    </div>
+    {% endfor %}
+</div>
+
+<h2>Select Car</h2>
+<div id="cars">
+    {% for car in cars %}
+    <div class="option-card">
+        <h4>{{ car.name }}</h4>
+        <p>Cost: ${{ car.cost }}M</p>
+        <p>Performance: {{ car.performance }}</p>
+        <input type="radio" name="car" value="{{ car.id }}" form="teamForm">
+    </div>
+    {% endfor %}
+</div>
+
+<h2>Select Engineer</h2>
+<div id="engineers">
+    {% for engineer in engineers %}
+    <div class="option-card">
+        <h4>{{ engineer.name }}</h4>
+        <p>Cost: ${{ engineer.cost }}M</p>
+        <p>Strategy: {{ engineer.strategy }}</p>
+        <input type="radio" name="engineer" value="{{ engineer.id }}" form="teamForm">
+    </div>
+    {% endfor %}
+</div>
+
+<h2>Recommended Team</h2>
+<ul>
+    <li>Driver: {{ recommendations.drivers.0.name|default:"-" }}</li>
+    <li>Car: {{ recommendations.cars.0.name|default:"-" }}</li>
+    <li>Engineer: {{ recommendations.engineers.0.name|default:"-" }}</li>
+</ul>
+
+<form id="teamForm" method="POST">
+    {% csrf_token %}
+    <button type="submit">Next</button>
+</form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Race Setup{% endblock %}
+
+{% block content %}
+<h2>Race Setup</h2>
+
+<div class="card mb-4">
+    <div class="card-header">Your Team</div>
+    <div class="card-body">
+        <p>Driver: {{ team.driver }}</p>
+        <p>Car: {{ team.car }}</p>
+        <p>Engineer: {{ team.engineer }}</p>
+        <p>Remaining Budget: ${{ team.budget }}</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Weather Forecast</div>
+    <div class="card-body">
+        <ul class="list-group">
+            {% for period in weather_timeline %}
+                <li class="list-group-item">
+                    Laps {{ period.laps }}: {{ period.weather }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<form method="POST" action="{% url 'start_race' %}" class="mt-4">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Start Race</button>
+</form>
+{% endblock %}

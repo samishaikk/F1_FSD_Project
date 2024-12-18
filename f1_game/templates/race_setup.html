@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Race Setup</h1>
+<p><strong>Driver:</strong> {{ team.driver }}</p>
+<p><strong>Car:</strong> {{ team.car }}</p>
+<p><strong>Engineer:</strong> {{ team.engineer }}</p>
+<p><strong>Starting Budget Left:</strong> ${{ team.budget }}M</p>
+
+<h2>Weather Forecast</h2>
+<div class="weather-timeline">
+    {% for weather in weather_timeline %}
+    <div class="weather-cell">
+        <p>Laps: {{ weather.laps }}</p>
+        <p>Weather: {{ weather.weather }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<h2>Game State</h2>
+<p>Tire Wear: 0%</p>
+<p>Fuel: 100%</p>
+<p>Position: 5</p>
+
+<h2>Choose a Strategy</h2>
+<form method="POST" action="{% url 'race_setup' %}">
+    {% csrf_token %}
+    <button type="submit" name="strategy" value="push">Push</button>
+    <button type="submit" name="strategy" value="conserve">Conserve</button>
+    <button type="submit" name="strategy" value="pit">Pit Stop</button>
+</form>
+{% endblock %}

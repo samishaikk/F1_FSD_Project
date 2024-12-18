@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block title %}Race{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Race in Progress</h2>
+
+    <div class="card mb-4">
+        <div class="card-header">Race Status</div>
+        <div class="card-body race-status">
+            <p>Lap: {{ race_state.lap }}/40</p>
+            <p>Position: {{ race_state.position }}</p>
+            <p>Tire Wear: {{ race_state.tire_wear }}%</p>
+            <p>Fuel: {{ race_state.fuel }}%</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">Team</div>
+        <div class="card-body">
+            <p>Driver: {{ team.driver }}</p>
+            <p>Car: {{ team.car }}</p>
+            <p>Engineer: {{ team.engineer }}</p>
+        </div>
+    </div>
+
+    {% if last_strategy %}
+    <div class="alert alert-info mb-4">
+        Last strategy: {{ last_strategy }}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'race_strategy' %}">
+        {% csrf_token %}
+        <div class="btn-group" role="group">
+            <button type="submit" name="strategy" value="push" class="btn btn-danger strategy-btn" data-wear-rate="1.5"
+                data-fuel-rate="1.4">Push Hard</button>
+            <button type="submit" name="strategy" value="normal" class="btn btn-primary strategy-btn"
+                data-wear-rate="1.0" data-fuel-rate="1.0">Normal</button>
+            <button type="submit" name="strategy" value="conserve" class="btn btn-success strategy-btn"
+                data-wear-rate="0.7" data-fuel-rate="0.8">Conserve</button>
+            <button type="submit" name="strategy" value="pit" class="btn btn-warning strategy-btn" data-wear-rate="0"
+                data-fuel-rate="0">Pit Stop</button>
+        </div>
+    </form>
+
+    <div class="progress mt-4">
+        <div class="progress-bar bg-warning tire-wear" role="progressbar" style="width: {{ race_state.tire_wear }}%"
+            aria-valuenow="{{ race_state.tire_wear }}" aria-valuemin="0" aria-valuemax="100">
+            Tire Wear
+        </div>
+    </div>
+    <div class="progress mt-2">
+        <div class="progress-bar bg-info fuel-level" role="progressbar" style="width: {{ race_state.fuel }}%"
+            aria-valuenow="{{ race_state.fuel }}" aria-valuemin="0" aria-valuemax="100">
+            Fuel
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">Race Positions</div>
+        <div class="card-body race-positions">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Driver</th>
+                        <th>Time Delta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for position in race_positions %}
+                    <tr>
+                        <td>{{ position.number }}</td>
+                        <td>{{ position.driver_code }}</td>
+                        <td>{{ position.time_delta }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    let isAutoUpdating = true;
+    let autoUpdateInterval;
+    let currentWearRate = 1.0;
+    let currentFuelRate = 1.0;
+
+    function sendStrategy(strategy, wearRate, fuelRate) {
+        currentWearRate = wearRate;
+        currentFuelRate = fuelRate;
+
+        const formData = new FormData();
+        formData.append('strategy', strategy);
+        formData.append('wear_rate', wearRate);
+        formData.append('fuel_rate', fuelRate);
+        formData.append('csrfmiddlewaretoken', document.querySelector('[name=csrfmiddlewaretoken]').value);
+
+        return fetch("{% url 'race_strategy' %}", {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.redirect) {
+                    window.location.href = data.redirect;
+                    return;
+                }
+                updateDisplay(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                isAutoUpdating = false;
+            });
+    }
+
+    function updateDisplay(data) {
+        if (!data.race_state) return;
+
+        const status = document.querySelector('.race-status');
+        status.innerHTML = `
+            <p>Lap: ${data.race_state.lap}/40</p>
+            <p>Position: ${data.race_state.position}</p>
+            <p>Tire Wear: ${data.race_state.tire_wear}%</p>
+            <p>Fuel: ${data.race_state.fuel}%</p>
+        `;
+
+        document.querySelector('.tire-wear').style.width = `${data.race_state.tire_wear}%`;
+        document.querySelector('.fuel-level').style.width = `${data.race_state.fuel}%`;
+
+        if (data.last_strategy) {
+            const strategyAlert = document.querySelector('.alert-info');
+            if (strategyAlert) {
+                strategyAlert.textContent = `Last strategy: ${data.last_strategy}`;
+            }
+        }
+
+        if (data.race_positions) {
+            const positionsTable = document.querySelector('.race-positions tbody');
+            positionsTable.innerHTML = data.race_positions.map(position => `
+                <tr>
+                    <td>${position.number}</td>
+                    <td>${position.driver_code}</td>
+                    <td>${position.time_delta}</td>
+                </tr>
+            `).join('');
+        }
+    }
+
+    function startAutoUpdate(wearRate = 1.0, fuelRate = 1.0) {
+        isAutoUpdating = true;
+        autoUpdateInterval = setInterval(() => {
+            if (isAutoUpdating) {
+                sendStrategy('normal', wearRate, fuelRate);
+            }
+        }, 2000);  // Changed from 3000 to 2000 for faster laps
+    }
+
+    // Start auto updates
+    startAutoUpdate();
+
+    // Handle strategy buttons
+    document.querySelectorAll('.strategy-btn').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            isAutoUpdating = false;
+            clearInterval(autoUpdateInterval);
+
+            const wearRate = parseFloat(this.dataset.wearRate);
+            const fuelRate = parseFloat(this.dataset.fuelRate);
+
+            sendStrategy(this.value, wearRate, fuelRate).then(() => {
+                // Resume auto updates after manual strategy
+                setTimeout(() => startAutoUpdate(wearRate, fuelRate), 3000);
+            });
+        });
+    });
+</script>
+{% endblock %}
